@@ -1,2 +1,4 @@
 
 *.pyc
+
+core_suppliers\.egg-info/

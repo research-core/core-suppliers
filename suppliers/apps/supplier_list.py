@@ -9,11 +9,11 @@ from pyforms.basewidget import no_columns
 from django.conf import settings
 from confapp            import conf                           
 
-from supplier.models    import Supplier
+from suppliers.models    import Supplier
 from pyforms.controls   import ControlButton
 from pyforms.controls   import ControlText
 
-from supplier.models    import Catproduct
+from suppliers.models    import Category
 
 class SupplierFormAdmin(ModelFormWidget):
 
@@ -68,7 +68,7 @@ class SupplierFormAdmin(ModelFormWidget):
             self._addcategory_btn.label = '<i class="icon plus" ></i>Category'
             self._addcategory_btn.css = 'basic mini'
             if self._category.value:
-                Catproduct(catproduct_name=self._category.value).save()
+                Category(catproduct_name=self._category.value).save()
 
 
 

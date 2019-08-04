@@ -1,8 +1,5 @@
 from django.db import models
-
-from .category import Catproduct
-from .country import Country
-from . import history  # needed to avoid circular import with finance module
+from suppliers.models import history
 
 
 class Supplier(models.Model):
@@ -18,8 +15,8 @@ class Supplier(models.Model):
     supplier_mail = models.CharField('Email', max_length=200, blank=True, null=True) #: Email address of a finance
     supplier_discounts = models.CharField('Discounts', max_length=200, blank=True, null=True) #: Free text Discounts
 
-    country = models.ForeignKey(Country, blank=True, null=True, on_delete=models.CASCADE) #: Fk Supplier's operation country
-    category = models.ManyToManyField(Catproduct, blank=True)  #: category of the supplied product
+    country = models.ForeignKey('common.Country', blank=True, null=True, on_delete=models.CASCADE) #: Fk Supplier's operation country
+    category = models.ManyToManyField('Category', blank=True)  #: category of the supplied product
 
     @staticmethod
     def autocomplete_search_fields():
@@ -29,7 +26,6 @@ class Supplier(models.Model):
         verbose_name = "Supplier"
         verbose_name_plural = "Suppliers"
         ordering = ['supplier_name',]
-        app_label = 'finance'
 
     def __str__(self):
         return self.supplier_name

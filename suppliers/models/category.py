@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Catproduct(models.Model):
+class Category(models.Model):
     """
     Represents Product Category in the system
     """
@@ -12,7 +12,6 @@ class Catproduct(models.Model):
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
-        app_label = 'finance'
 
     def __str__(self):
         return self.catproduct_name
