@@ -17,8 +17,8 @@ from suppliers.models    import Category
 
 class SupplierFormAdmin(ModelFormWidget):
 
-    MODEL     = Supplier  #model to manage
-    TITLE     = 'Suppliers'  #title of the application
+    MODEL = Supplier  #model to manage
+    TITLE = 'Suppliers'  #title of the application
 
     #formset of the edit form
     FIELDSETS = [
@@ -89,7 +89,7 @@ class SupplierAdminWidget(ModelAdminWidget):
     #### ORQUESTRA CONFIGURATION ###########################
     ########################################################
     LAYOUT_POSITION      = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU       = 'left>OrderAdminWidget'
+    ORQUESTRA_MENU       = 'left'
     ORQUESTRA_MENU_ORDER = 0
     ORQUESTRA_MENU_ICON  = 'truck'
     #AUTHORIZED_GROUPS   = ['superuser'] #groups with authorization to visualize the app
