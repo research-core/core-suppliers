@@ -2,3 +2,7 @@
 *.pyc
 
 core_suppliers\.egg-info/
+
+build/
+
+dist/
