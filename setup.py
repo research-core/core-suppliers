@@ -26,4 +26,5 @@ setup(
     long_description_content_type='text/markdown',
     packages=find_packages(),
     license=license,
+    package_data={ 'suppliers': ['fixtures/initial_data.yaml'] },
 )
