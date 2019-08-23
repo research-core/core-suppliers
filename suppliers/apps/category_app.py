@@ -3,7 +3,7 @@ from pyforms_web.widgets.django import ModelAdminWidget
 
 from suppliers.models import Category
 
-class CitizenshipAdminApp(ModelAdminWidget):
+class CategoryAdminApp(ModelAdminWidget):
 
     UID   = 'categories'
     TITLE = 'Categories'

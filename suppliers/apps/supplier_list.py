@@ -1,19 +1,12 @@
-#from django_pyforms.model_admin.editform_admin import EditFormAdmin
-#from pyforms_web.controls.ControlQueryList import ControlQueryList
 from pyforms_web.widgets.django import ModelAdminWidget
 from pyforms_web.widgets.django import ModelFormWidget
-from pyforms_web.widgets.django import ModelViewFormWidget
 from pyforms.basewidget import segment
-from pyforms.basewidget import no_columns
-
 from django.conf import settings
-from confapp            import conf                           
-
-from suppliers.models    import Supplier
-from pyforms.controls   import ControlButton
-from pyforms.controls   import ControlText
-
-from suppliers.models    import Category
+from confapp     import conf
+from suppliers.models import Supplier
+from pyforms.controls import ControlButton
+from pyforms.controls import ControlText
+from suppliers.models import Category
 
 class SupplierFormAdmin(ModelFormWidget):
 
@@ -24,13 +17,13 @@ class SupplierFormAdmin(ModelFormWidget):
     FIELDSETS = [
         (
             segment(
-                ('supplier_name','supplier_nif'),
-                ('supplier_mail','supplier_contact'),
-                ('country','supplier_phone'),
+                ('name','nif'),
+                ('email','contact'),
+                ('country','phone'),
             ),
             segment(
-                'supplier_keywords',
-                'supplier_discounts',
+                'keywords',
+                'discounts',
                 'category',
                 ('_category','_addcategory_btn')
             )
@@ -68,7 +61,8 @@ class SupplierFormAdmin(ModelFormWidget):
             self._addcategory_btn.label = '<i class="icon plus" ></i>Category'
             self._addcategory_btn.css = 'basic mini'
             if self._category.value:
-                Category(catproduct_name=self._category.value).save()
+                obj, created = Category.objects.get_or_create(name=self._category.value)
+
 
 
 
